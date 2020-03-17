@@ -1,0 +1,25 @@
+﻿@model Layoutmvc.Models.Login_table
+@{ 
+    ViewBag.Title = "LoginPage";
+}
+
+<h2>LoginPage</h2>
+@using (Html.BeginForm("submit","Home"))
+{
+    <table>
+        <tr>
+            <td>Login</td>
+            <td>@Html.TextBoxFor(a => a.Login)</td>
+            <td>@Html.ValidationMessageFor(a => a.Login, "", new { @class = "text-danger" })</td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>@Html.PasswordFor(a=>a.password)</td>
+            <td>@Html.ValidationMessageFor(a => a.password, "", new { @class = "text-danger" })</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="submit" /></td>
+        </tr>
+    </table>
+}
+

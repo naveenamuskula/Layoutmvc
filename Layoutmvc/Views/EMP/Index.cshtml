@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Layoutmvc.Models.EMPDATA>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayoutPage.cshtml";
+}
+
+<h2>Index</h2>
+<p>@Html.ActionLink("Create New", "Create", "EMP")</p>
+@using (Html.BeginForm())
+{
+    if (Model != null)
+    {
+    <table>
+        <tr>
+            <td>Empno</td>
+            <td>Ename</td>
+            <td>Job</td>
+            <td>MGR</td>
+            <td>Hiredate</td>
+            <td>Salary</td>
+            <td>Commission</td>
+            <td>Deptno</td>
+        </tr>
+        @foreach (var i in Model)
+        {
+        <tr>
+            <td>@i.EMPNO</td>
+            <td>@i.ENAME</td>
+            <td>@i.JOB</td>
+            <td>@i.MGR</td>
+            <td>@i.HIREDATE</td>
+            <td>@i.SAL</td>
+            <td>@i.COMM</td>
+            <td>@i.DEPTNO</td>
+            <td>@Html.ActionLink("Edit Emp", "Edit", "EMP", new { id = i.EMPNO }, null)</td>
+            <td>@Html.ActionLink("Delete","Delete","EMP",new { id = i.EMPNO },null)</td>
+        </tr>
+        }
+    </table>
+    }
+
+}
+
